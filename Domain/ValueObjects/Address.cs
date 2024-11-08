@@ -16,21 +16,28 @@ public class Address
     public string Street { get; set; }
     
     /// <summary>
-    /// Дом.
+    /// Почтовый индекс.
     /// </summary>
-    public string House { get; set; }
+    public int PostalCode { get; set; }
+    
+    /// <summary>
+    /// Код страны.
+    /// </summary>
+    public string CountryCode { get; set; }
     
     /// <summary>
     /// Конструктор для инициализации адреса.
     /// </summary>
     /// <param name="street">улица.</param>
     /// <param name="city">город.</param>
-    /// <param name="house">дом.</param>
-    public Address(string street, string city, string house)
+    /// <param name="postalCode">почтовый индекс.</param>
+    /// <param name="countryCode">код страны.</param>
+    public Address(string street, string city, int postalCode, string countryCode)
     {
         Street = street;
         City = city;
-        House = house;
+        PostalCode = postalCode;
+        CountryCode = countryCode;
     }
     
     /// <summary>
@@ -39,6 +46,6 @@ public class Address
     /// <returns>Строка, представляющая адрес.</returns>
     public override string ToString()
     {
-        return $"{City}, {Street}, {House}";
+        return $"{City}, {Street}, {PostalCode}, {CountryCode}";
     }
 }
