@@ -13,19 +13,30 @@ public class AddressValidator : AbstractValidator<Address>
     /// </summary>
     public AddressValidator()
     {
-        RuleFor(a => a.Street)
-            .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
-            .NotNull().WithMessage(ValidationMessage.NotNull)
-            .Length(3, 100).WithMessage(ValidationMessage.WrongLength);
         RuleFor(a => a.City)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .NotNull().WithMessage(ValidationMessage.NotNull)
-            .Length(2, 50).WithMessage(ValidationMessage.WrongLength);
+            .Length(2, 50).WithMessage(ValidationMessage.WrongLength)
+            .Matches(@"^[A-Za-zА-Яа-я\s\-]+$").WithMessage(ValidationMessage.OnlyLettersSpacesAndHyphens);
+        
+        RuleFor(a => a.Street)
+            .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
+            .NotNull().WithMessage(ValidationMessage.NotNull)
+            .Length(3, 100).WithMessage(ValidationMessage.WrongLength)
+            .Matches(@"^[A-Za-zА-Яа-я0-9\s\-]+$").WithMessage(ValidationMessage.OnlyLettersSpacesDigitsAndHyphens);
+        
+        RuleFor(a => a.House)
+            .NotNull().WithMessage(ValidationMessage.NotNull)
+            .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
+            .Length(1, 10).WithMessage(ValidationMessage.WrongLength)
+            .Matches(@"^[A-Za-zА-Яа-я0-9\-]+$").WithMessage(ValidationMessage.OnlyLettersDigitsAndHyphens);
+        
         RuleFor(a => a.PostalCode)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .NotNull().WithMessage(ValidationMessage.NotNull)
             .GreaterThanOrEqualTo(10000).WithMessage(ValidationMessage.WrongPostalCode)
             .LessThanOrEqualTo(999999).WithMessage(ValidationMessage.WrongPostalCode);
+        
         RuleFor(a => a.CountryCode)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .NotNull().WithMessage(ValidationMessage.NotNull)

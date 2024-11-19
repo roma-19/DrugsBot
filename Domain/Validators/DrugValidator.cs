@@ -17,12 +17,12 @@ public class DrugValidator : AbstractValidator<Drug>
             .NotNull().WithMessage(ValidationMessage.NotNull)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .Length(2, 150).WithMessage(ValidationMessage.WrongLength)
-            .Matches(@"^[A-Za-zА-Яа-яёЁ0-9]+$").WithMessage(ValidationMessage.NoSpecialCharacters);
+            .Matches(@"^[A-Za-zА-Яа-яёЁ0-9\s]+$").WithMessage(ValidationMessage.NoSpecialCharacters);
         RuleFor(m => m.Manufacturer)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .NotNull().WithMessage(ValidationMessage.NotNull)
             .Length(2, 100).WithMessage(ValidationMessage.WrongLength)
-            .Matches(@"^[A-Za-zА-Яа-яёЁ\s-]+$").WithMessage(ValidationMessage.OnlyLettersSpacesAndHyphen);
+            .Matches(@"^[A-Za-zА-Яа-яёЁ\s\-]+$").WithMessage(ValidationMessage.OnlyLettersSpacesAndHyphens);
         RuleFor(d => d.CountryCodeId)
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .NotNull().WithMessage(ValidationMessage.NotNull)

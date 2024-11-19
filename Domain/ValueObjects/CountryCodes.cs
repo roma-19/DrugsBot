@@ -2,7 +2,7 @@ namespace Domain.ValueObjects;
 /// <summary>
 /// Класс, содержащий коллекцию со списком кодов стран.
 /// </summary>
-public static class CountryCodes
+public class CountryCodes : BaseValueObject
 {
     /// <summary>
     /// Коллекция, содержащая список кодов стран в формате Alpha-2.

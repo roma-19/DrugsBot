@@ -35,9 +35,9 @@ public static class ValidationMessage
     public static readonly string NoSpecialCharacters = "{PropertyName} не должен содержать специальных символов";
     
     /// <summary>
-    /// Сообщение об ошибке, если у значения неверный формат (только буквы, пробелы и дефис).
+    /// Сообщение об ошибке, если у значения неверный формат (только буквы, пробелы или дефисы).
     /// </summary>
-    public static readonly string OnlyLettersSpacesAndHyphen = "{PropertyName} должен содержать только буквы";
+    public static readonly string OnlyLettersSpacesAndHyphens = "{PropertyName} должен содержать только буквы, пробел или дефис";
 
     /// <summary>
     /// Сообщение об ошибке, если значение является отрицательным.
@@ -63,4 +63,19 @@ public static class ValidationMessage
     /// Сообщение об ошибке, если у значения больше двух значений после запятой.
     /// </summary>
     public static readonly string WrongDecimalFormat = "{PropertyName} не должень иметь больше 2 значений после запятой";
+    
+    /// <summary>
+    /// Сообщение об ошибке, если у значения неверный формат (только буквы, пробелы, цифры или дефисы).
+    /// </summary>
+    public static readonly string OnlyLettersSpacesDigitsAndHyphens = "{PropertyName} должен содержать только буквы, пробелы, цифры или дефис";
+    
+    /// <summary>
+    /// Сообщение об ошибке, если у значения неверный формат (только буквы, цифры или дефисы).
+    /// </summary>
+    public static readonly string OnlyLettersDigitsAndHyphens = "{PropertyName} должен содержать только буквы, цифры или дефис";
+
+    /// <summary>
+    /// Сообщение об ошибке, если у значения неверный формат электронной почты.
+    /// </summary>
+    public static readonly string WrongEmail = "{PropertyName} должен иметь правильный формат электронной почты";
 }

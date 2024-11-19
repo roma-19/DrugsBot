@@ -1,4 +1,6 @@
 using System.Reflection;
+using FluentValidation;
+
 
 namespace Domain.ValueObjects;
 
@@ -107,5 +109,21 @@ public abstract class BaseValueObject : IEquatable<BaseValueObject>
     public static bool operator !=(BaseValueObject? left, BaseValueObject? right)
     {
         return !(left == right);
+    }
+    
+    /// <summary>
+    /// Метод для выполнения валидации объекта-значения с использованием указанного валидатора.
+    /// </summary>
+    /// <typeparam name="T">Тип объекта значения.</typeparam>
+    /// <param name="validator">Валидатор для проверки.</param>
+    /// <exception cref="ValidationException">Исключение, если валидация не удалась.</exception>
+    protected void ValidateValueObject<T>(IValidator<T> validator) where T : BaseValueObject
+    {
+        var result = validator.Validate((T)this);
+        if (!result.IsValid)
+        {
+            var errors = string.Join("; ", result.Errors.Select(e => e.ErrorMessage));
+            throw new ValidationException($"Validation failed for {typeof(T).Name}: {errors}");
+        }
     }
 }
