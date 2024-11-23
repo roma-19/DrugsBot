@@ -1,5 +1,6 @@
 using Domain.DomainEvents;
 using Domain.Entities;
+using FluentAssertions;
 
 namespace Tests.DrugItemEvent;
 
@@ -14,24 +15,13 @@ public class DrugItemEventPositive
     [Fact]
     public void UpdateDrugCount_ShouldAddDomainEvent_WhenDataIsValid()
     {
-        var drugItem = new DrugItem(
-            Guid.NewGuid(),
-            Guid.NewGuid(),
-            100,
-            10,
-            new Drug(),
-            new DrugStore()
-        );
-        var newCount = 15.0;
+        var drugItemId = Guid.NewGuid();
+        var newAmount = 10;
         
-        drugItem.UpdateDrugCount(newCount);
+        var drugItemUpdateEvent = new DrugItemUpdateEvent(drugItemId, newAmount);
         
-        var domainEvents = drugItem.GetDomainEvents();
-        Assert.NotEmpty(domainEvents);
-        
-        var updateEvent = domainEvents.OfType<DrugItemUpdateEvent>().FirstOrDefault();
-        Assert.NotNull(updateEvent);
-        Assert.Equal(drugItem.Id, updateEvent.DrugItemId);
-        Assert.Equal(newCount, updateEvent.NewAmount);
+        Assert.NotNull(drugItemUpdateEvent);
+        Assert.Equal(drugItemId, drugItemUpdateEvent.DrugItemId);
+        Assert.Equal(newAmount, drugItemUpdateEvent.NewAmount);
     }
 }

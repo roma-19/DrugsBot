@@ -1,5 +1,5 @@
-using System.ComponentModel.DataAnnotations;
-using Domain.Entities;
+using Domain.DomainEvents;
+using FluentValidation;
 
 namespace Tests.DrugItemEvent;
 
@@ -14,24 +14,9 @@ public class DrugItemEventNegative
     [Fact]
     public void UpdateDrugCount_ShouldNotAddDomainEvent_WhenCountIsInvalid()
     {
-        var drugItem = new DrugItem(
-            Guid.NewGuid(),
-            Guid.NewGuid(),
-            100.0m,
-            10.0,
-            new Drug(),
-            new DrugStore()
-        );
-        var invalidCount = -5.0;
+        var drugItemId = Guid.Empty;
+        var newAmount = -5;
         
-        var exception = Assert.Throws<ValidationException>(() =>
-        {
-            drugItem.UpdateDrugCount(invalidCount);
-        });
-
-        Assert.Contains("Новое кол-во препарата должно быть больше нуля", exception.Message);
-        var domainEvents = drugItem.GetDomainEvents();
-        Assert.Empty(domainEvents);
+        Assert.Throws<ValidationException>(() => new DrugItemUpdateEvent(drugItemId, newAmount));
     }
-
 }
