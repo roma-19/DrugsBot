@@ -8,18 +8,13 @@ namespace Domain.Entities;
 public class Drug : BaseEntity<Drug>
 {
     /// <summary>
-    /// Конструктор без параметров.
-    /// </summary>
-    public Drug() {}
-    
-    /// <summary>
     /// Конструктор для инициализации лекарства.
     /// </summary>
     /// <param name="name">Название.</param>
     /// <param name="manufacturer">Производитель.</param>
     /// <param name="countryCodeId">Код страны производителя.</param>
     /// <param name="country">Страна.</param>
-    public Drug(string? name, string? manufacturer, string? countryCodeId, Country country, Func<string, bool> countryExistsFunc)
+    public Drug(string? name, string? manufacturer, string? countryCodeId, Country country)
     {
         Name = name;
         Manufacturer = manufacturer;
@@ -28,26 +23,26 @@ public class Drug : BaseEntity<Drug>
         
         ValidateEntity(new DrugValidator());
     }
-    
+
     /// <summary>
     /// Название лекарства.
     /// </summary>
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
     
     /// <summary>
     /// Производитель лекарства.
     /// </summary>
-    public string? Manufacturer { get; private set; }
+    public string? Manufacturer { get; set; }
     
     /// <summary>
     /// Навигационное свойство для связи с Country.
     /// </summary>
-    public Country Country { get; private set; }
+    public Country Country { get; set; }
     
     /// <summary>
     /// Код страны производителя.
     /// </summary>
-    public string? CountryCodeId { get; private set; }
+    public string? CountryCodeId { get; set; }
     
     /// <summary>
     /// Навигационное свойство для связи с DrugItem.

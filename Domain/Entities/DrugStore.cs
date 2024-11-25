@@ -7,10 +7,6 @@ namespace Domain.Entities;
 /// </summary>
 public class DrugStore: BaseEntity<DrugStore>
 {
-    /// <summary>
-    /// Конструктор без параметров.
-    /// </summary>
-    public DrugStore() {}
     
     /// <summary>
     /// Конструктор для инициализации аптеки.
@@ -30,17 +26,17 @@ public class DrugStore: BaseEntity<DrugStore>
     /// <summary>
     /// Сеть аптек.
     /// </summary>
-    public string? DrugNetwork { get; private set; }
+    public string? DrugNetwork { get; set; }
     
     /// <summary>
     /// Номер аптеки.
     /// </summary>
-    public int Number { get; private set; }
+    public int Number { get; set; }
     
     /// <summary>
     /// Адрес аптеки.
     /// </summary>
-    public Address? Address { get; private set; }
+    public Address? Address { get; set; }
     
     /// <summary>
     /// Навигационное свойство для связи с DrugItem.

@@ -23,12 +23,12 @@ public class Country : BaseEntity<Country>
     /// <summary>
     /// Название страны.
     /// </summary>
-    public string? Name { get; private set; }
+    public string? Name { get; set; }
     
     /// <summary>
     /// Код страны.
     /// </summary>
-    public string? Code { get; private set; }
+    public string? Code { get; set; }
     
     
     /// <summary>

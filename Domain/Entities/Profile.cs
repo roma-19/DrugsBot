@@ -11,9 +11,9 @@ public class Profile : BaseEntity<Profile>
     /// <summary>
     /// Конструктор для инициализации профиля.
     /// </summary>
-    /// <param name="id"></param>
-    /// <param name="externalId"></param>
-    /// <param name="email"></param>
+    /// <param name="id">Идентификатор профиля.</param>
+    /// <param name="externalId">Внешний идентификатор.</param>
+    /// <param name="email">Электронная почта.</param>
     public Profile(Guid id, string externalId, Email email)
     {
         Id = id;
@@ -26,17 +26,17 @@ public class Profile : BaseEntity<Profile>
     /// <summary>
     /// Идентификатор профиля.
     /// </summary>
-    public Guid Id { get; private set; }
+    public Guid Id { get; set; }
     
     /// <summary>
     /// Внешний идентификатор.
     /// </summary>
-    public string ExternalId { get; private set; }
+    public string ExternalId { get; set; }
     
     /// <summary>
     /// Электронная почта.
     /// </summary>
-    public Email Email { get; private set; }
+    public Email Email { get; set; }
     
     /// <summary>
     /// Навигационное свойство для связи с Favourite Drug.
