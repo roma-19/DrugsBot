@@ -6,6 +6,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D4119F09-0D35-456A-8400-286CFB6EE9B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{CC836985-8A7C-4882-BA8A-078170B7E40C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{90F3D07A-78E3-4B6B-854D-CFE4F764B529}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +31,9 @@ Global
 		{D4119F09-0D35-456A-8400-286CFB6EE9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4119F09-0D35-456A-8400-286CFB6EE9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4119F09-0D35-456A-8400-286CFB6EE9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC836985-8A7C-4882-BA8A-078170B7E40C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC836985-8A7C-4882-BA8A-078170B7E40C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC836985-8A7C-4882-BA8A-078170B7E40C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC836985-8A7C-4882-BA8A-078170B7E40C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

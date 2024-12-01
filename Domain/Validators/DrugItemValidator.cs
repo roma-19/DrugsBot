@@ -22,7 +22,7 @@ public class DrugItemValidator: AbstractValidator<DrugItem>
     /// <summary>
     /// Метод, который проверяет цену на правильный формат (не более 2 значений после запятой).
     /// </summary>
-    /// <param name="amount">цена.</param>
+    /// <param name="amount">Цена.</param>
     /// <returns>True, если после запятой не больше 2 значений; иначе False.</returns>
     private bool IsValidDecimal(decimal amount)
     {
