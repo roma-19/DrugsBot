@@ -55,7 +55,12 @@ public class DrugsBotDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-
+        
+        modelBuilder.ApplyConfiguration(new CountryConfiguration());
         modelBuilder.ApplyConfiguration(new DrugConfiguration());
+        modelBuilder.ApplyConfiguration(new DrugItemConfiguration());
+        modelBuilder.ApplyConfiguration(new DrugStoreConfiguration());
+        modelBuilder.ApplyConfiguration(new FavouriteDrugConfiguration());
+        modelBuilder.ApplyConfiguration(new ProfileConfiguration());
     }
 }
