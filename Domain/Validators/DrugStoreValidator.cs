@@ -17,6 +17,8 @@ public class DrugStoreValidator : AbstractValidator<DrugStore>
             .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .Length(2, 100).WithMessage(ValidationMessage.WrongLength);
         RuleFor(s => s.Number)
+            .NotNull().WithMessage(ValidationMessage.NotNull)
+            .NotEmpty().WithMessage(ValidationMessage.NotEmpty)
             .GreaterThanOrEqualTo(0).WithMessage(ValidationMessage.NonNegativeInteger);
     }
 }
